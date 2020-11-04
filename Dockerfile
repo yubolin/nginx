@@ -15,7 +15,7 @@ RUN \
   apt-get update && \
   apt-get install -y nginx iperf3 net-tools iputils-ping iproute2 tcpdump netcat-traditional curl inotify-tools&& \
   rm -rf /var/lib/apt/lists/* && \
-  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  #echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
 # Define mountable directories.
@@ -23,6 +23,7 @@ RUN \
 
 # Define working directory.
 WORKDIR /etc/nginx
+ADD ./nginx.conf /etc/nginx/ 
 RUN \
   cd /usr/share/nginx/html/ && \
   dd if=/dev/zero of=1GB.bin bs=1 count=0 seek=1G && \
