@@ -5,10 +5,11 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu:16.04
 
 # Install Nginx.
 RUN \
+  apt-get install -y software-properties-common \
   add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
   apt-get install -y nginx iperf3 net-tools iputils-ping iproute2 tcpdump netcat-traditional curl&& \
