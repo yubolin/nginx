@@ -33,7 +33,7 @@ RUN \
   dd if=/dev/zero of=test-2k.out bs=1024 count=0 seek=2 && \
   dd if=/dev/zero of=test-4k.out bs=1024 count=0 seek=4 && \
   dd if=/dev/zero of=test-8k.out bs=1024 count=0 seek=8 && \
-  dd if=/dev/zero of=test-16k.out bs=1024 count=0 seek=16 && \
+  dd if=/dev/zero of=test-16k.out bs=1024 count=0 seek=16 
 
 
 # Define default command.
