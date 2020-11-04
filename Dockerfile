@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM ubuntu:16.04
+FROM dockerfile/ubuntu
 
 # Install Nginx.
 RUN \
