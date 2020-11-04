@@ -18,11 +18,10 @@ oldcksum=`/etc/nginx/sites-enabled/default.conf`
 inotifywait -mr --timefmt '%d/%m/%y %H:%M' --format '%T' \
 /etc/nginx/conf.d/ | while read date time; do
 
-	newcksum=`cksum /etc/nginx/sites-available/default.conf`
+	newcksum=`cksum /etc/nginx/sites-enabled/default.conf`
 	if [ "$newcksum" != "$oldcksum" ]; then
 		echo "At ${time} on ${date}, config file update detected."
 		oldcksum=$newcksum
-		ln -s $newcksum /etc/nginx/sites-enabled/
 		nginx -s reload
 	fi
 

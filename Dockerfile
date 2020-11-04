@@ -22,7 +22,7 @@ RUN \
 #VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/ssl", "/etc/nginx/conf.d", "/var/log/nginx"]
 
 # Define working directory.
-#WORKDIR /etc/nginx
+WORKDIR /etc/nginx
 
 # Define default command.
 #CMD ["nginx"]

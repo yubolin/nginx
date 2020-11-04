@@ -56,5 +56,5 @@ spec:
         volumeMounts:
         - mountPath: /etc/nginx/ssl
           name: secret-volume
-        - mountPath: /etc/nginx/sites-available
+        - mountPath: /etc/nginx/sites-enabled
           name: configmap-volume
