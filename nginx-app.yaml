@@ -36,8 +36,7 @@ spec:
           name: nginxconfigmap
       containers:
       - name: nginxhttps
-        image: ymqytw/nginxhttps:1.5
-        command: ["/home/auto-reload-nginx.sh"]
+        image: quay.io/yubolin/nginx:1.0
         ports:
         - containerPort: 443
         - containerPort: 80
