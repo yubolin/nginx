@@ -19,14 +19,15 @@ RUN \
   chown -R www-data:www-data /var/lib/nginx
 
 # Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/ssl", "/etc/nginx/conf.d", "/var/log/nginx"]
+#VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/ssl", "/etc/nginx/conf.d", "/var/log/nginx"]
 
 # Define working directory.
 #WORKDIR /etc/nginx
 
 # Define default command.
-CMD ["nginx"]
+#CMD ["nginx"]
+ADD auto-reload-nginx.sh /home/
 
 # Expose ports.
-EXPOSE 80
-EXPOSE 443
+#EXPOSE 80
+#EXPOSE 443

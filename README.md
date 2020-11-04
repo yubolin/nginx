@@ -26,7 +26,7 @@ configmap "nginxconfigmap" created
 ```
 Create a service and a replication controller using the configuration in nginx-app.yaml.
 
-$ kubectl create -f examples/staging/https-nginx/nginx-app.yaml
+$ kubectl create -f nginx-app.yaml
 You have exposed your service on an external port on all nodes in your
 cluster.  If you want to expose this service to the external internet, you may
 need to set up firewall rules for the service port(s) (tcp:32211,tcp:30028) to serve traffic.
