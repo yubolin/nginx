@@ -13,7 +13,7 @@ RUN \
   apt-get install -y software-properties-common &&\
   add-apt-repository -y ppa:nginx/stable && \
   apt-get update && \
-  apt-get install -y nginx iperf3 net-tools iputils-ping iproute2 tcpdump netcat-traditional curl&& \
+  apt-get install -y nginx iperf3 net-tools iputils-ping iproute2 tcpdump netcat-traditional curl inotify-tools&& \
   rm -rf /var/lib/apt/lists/* && \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx

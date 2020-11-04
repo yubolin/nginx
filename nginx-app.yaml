@@ -40,7 +40,10 @@ spec:
       containers:
       - name: nginx
         image: quay.io/yubolin/nginx
-        command: ["/home/auto-reload-nginx.sh"]
+        command: 
+        - 'sh'
+        - '-c'
+        - '/home/auto-reload-nginx.sh'
         ports:
         - containerPort: 443
         - containerPort: 80
@@ -53,5 +56,5 @@ spec:
         volumeMounts:
         - mountPath: /etc/nginx/ssl
           name: secret-volume
-        - mountPath: /etc/nginx/sites-available/
+        - mountPath: /etc/nginx/sites-available
           name: configmap-volume
