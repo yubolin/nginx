@@ -16,12 +16,15 @@ spec:
   selector:
     app: nginx
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: my-nginx
+  name: nginx
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
@@ -35,8 +38,8 @@ spec:
         configMap:
           name: nginxconfigmap
       containers:
-      - name: nginxhttps
-        image: quay.io/yubolin/nginx:1.0
+      - name: nginx
+        image: quay.io/yubolin/nginx
         ports:
         - containerPort: 443
         - containerPort: 80
