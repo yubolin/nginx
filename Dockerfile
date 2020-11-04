@@ -27,7 +27,7 @@ RUN \
 # Define default command.
 #CMD ["nginx"]
 ADD auto-reload-nginx.sh /home/
-
+RUN chmod +x /home/auto-reload-nginx.sh
 # Expose ports.
 #EXPOSE 80
 #EXPOSE 443
