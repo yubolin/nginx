@@ -15,7 +15,7 @@ RUN \
   apt-get update && \
   apt-get install -y nginx iperf3 net-tools iputils-ping iproute2 tcpdump netcat-traditional curl inotify-tools&& \
   rm -rf /var/lib/apt/lists/* && \
-  #echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
+  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
 # Define mountable directories.
@@ -40,6 +40,8 @@ RUN \
 #CMD ["nginx"]
 ADD auto-reload-nginx.sh /home/
 RUN chmod +x /home/auto-reload-nginx.sh
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
 # Expose ports.
 #EXPOSE 80
 #EXPOSE 443
