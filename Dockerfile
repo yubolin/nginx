@@ -25,8 +25,8 @@ VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/v
 WORKDIR /etc/nginx
 
 # Define default command.
-#CMD ["nginx"]
+CMD ["nginx"]
 
 # Expose ports.
-#EXPOSE 80
-#EXPOSE 443
+EXPOSE 80
+EXPOSE 443
