@@ -24,16 +24,16 @@ RUN \
 # Define working directory.
 WORKDIR /etc/nginx
 RUN \
-  cd /usr/share/nginx/html && \
-  dd if=/dev/zero of=1GB.bin bs=1 count=0 seek=1G && \
-  dd if=/dev/zero of=100MB.bin bs=1024 count=0 seek=$[1024*100] && \
-  dd if=/dev/zero of=10MB.bin bs=1024 count=0 seek=$[1024*10] && \
-  dd if=/dev/zero of=1MB.bin bs=1024 count=0 seek=$[1024] && \
-  dd if=/dev/zero of=test-1k.out bs=1024 count=0 seek=1 && \
-  dd if=/dev/zero of=test-2k.out bs=1024 count=0 seek=2 && \
-  dd if=/dev/zero of=test-4k.out bs=1024 count=0 seek=4 && \
-  dd if=/dev/zero of=test-8k.out bs=1024 count=0 seek=8 && \
-  dd if=/dev/zero of=test-16k.out bs=1024 count=0 seek=16 
+  cd /usr/share/nginx/html/ && \
+  dd if=/dev/zero of=1GB.bin bs=1 count=0 seek=1G 
+ # dd if=/dev/zero of=100MB.bin bs=1024 count=0 seek=$[1024*100] && \
+ # dd if=/dev/zero of=10MB.bin bs=1024 count=0 seek=$[1024*10] && \
+ # dd if=/dev/zero of=1MB.bin bs=1024 count=0 seek=$[1024] && \
+ # dd if=/dev/zero of=test-1k.out bs=1024 count=0 seek=1 && \
+ # dd if=/dev/zero of=test-2k.out bs=1024 count=0 seek=2 && \
+ # dd if=/dev/zero of=test-4k.out bs=1024 count=0 seek=4 && \
+ # dd if=/dev/zero of=test-8k.out bs=1024 count=0 seek=8 && \
+ # dd if=/dev/zero of=test-16k.out bs=1024 count=0 seek=16 
 
 
 # Define default command.
