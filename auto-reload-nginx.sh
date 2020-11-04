@@ -13,7 +13,7 @@
 # limitations under the License.
 
 nginx "$@"
-oldcksum=`/etc/nginx/sites-available/default.conf`
+oldcksum=`/etc/nginx/sites-enabled/default.conf`
 
 inotifywait -mr --timefmt '%d/%m/%y %H:%M' --format '%T' \
 /etc/nginx/conf.d/ | while read date time; do
