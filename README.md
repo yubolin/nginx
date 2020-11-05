@@ -26,6 +26,7 @@ configmap "nginxconfigmap" created
 ```
 Create a service and a deployment using the configuration in nginx-app.yaml.
 
+```sh
 $ kubectl create -f nginx-app.yaml
 You have exposed your service on an external port on all nodes in your
 cluster.  If you want to expose this service to the external internet, you may
