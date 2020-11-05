@@ -33,6 +33,7 @@ cluster.  If you want to expose this service to the external internet, you may
 need to set up firewall rules for the service port(s) (tcp:32211,tcp:30028) to serve traffic.
 ```
 service "nginxsvc" created
+
 deployment "nginx" created
 
 Create a Kubernetes ClusterIP service for your app so that it can be included in the Ingress application load balancing.
