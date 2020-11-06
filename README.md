@@ -12,7 +12,25 @@
     ```
 
 2. http/https proxy
-TBD
+    ```
+    $cat default.conf
+    upstream cse_server{
+	server 166.9.24.8:80;
+    }
+    server {
+        ...
+        proxy_connect_timeout 180;
+        proxy_send_timeout 180;
+        proxy_read_timeout 180;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarder-For $remote_addr;
+ 
+        #Reverse proxy point to upstream
+        location / {
+            proxy_pass http://cse_server;
+        }
+    }
+    ```
 
  ### Nginx https service
 
