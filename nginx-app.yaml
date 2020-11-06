@@ -13,6 +13,9 @@ spec:
   - port: 443
     protocol: TCP
     name: https
+  - port: 8080
+    protocol: TCP
+    name: tcp    
   selector:
     app: nginx
 ---
@@ -34,9 +37,12 @@ spec:
       - name: secret-volume
         secret:
           secretName: nginxsecret
-      - name: configmap-volume
+      - name: configmap-volume1
         configMap:
-          name: nginxconfigmap
+          name: nginxconfigmap1
+      - name: configmap-volume2
+        configMap:
+          name: nginxconfigmap2    
       containers:
       - name: nginx
         image: quay.io/yubolin/nginx
@@ -47,6 +53,7 @@ spec:
         ports:
         - containerPort: 443
         - containerPort: 80
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /index.html
@@ -57,4 +64,6 @@ spec:
         - mountPath: /etc/nginx/ssl
           name: secret-volume
         - mountPath: /etc/nginx/sites-enabled
-          name: configmap-volume
+          name: configmap-volume1
+        - mountPath: /etc/nginx/sites-available
+          name: configmap-volume2  
