@@ -9,7 +9,7 @@
         listen 8080;
         proxy_pass server_upstreams;
     }
-```
+    ```
 
 2. http/https proxy
 TBD
