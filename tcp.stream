@@ -1,0 +1,7 @@
+upstream server_upstreams {
+        server 166.9.24.8:8080;
+    }
+    server {
+        listen 8080;
+        proxy_pass server_upstreams;
+    }

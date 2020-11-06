@@ -21,8 +21,10 @@ Create a secret and a configmap.
 $ kubectl create secret tls nginxsecret --key /tmp/nginx.key --cert /tmp/nginx.crt
 secret "nginxsecret" created
 
-$ kubectl create configmap nginxconfigmap --from-file=default.conf
-configmap "nginxconfigmap" created
+$ kubectl create configmap nginxconfigmap1 --from-file=default.conf
+configmap "nginxconfigmap1" created
+$ kubectl create configmap nginxconfigmap2 --from-file=tcp.stream
+configmap "nginxconfigmap2" created
 ```
 Create a service and a deployment using the configuration in nginx-app.yaml.
 
