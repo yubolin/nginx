@@ -1,4 +1,20 @@
- #Nginx https service
+### Reverse proxy config
+1. TCP proxy
+   ```sh
+   $cat tcp.stream
+   upstream server_upstreams {
+        server 166.9.24.8:8080;
+    }
+    server {
+        listen 8080;
+        proxy_pass server_upstreams;
+    }
+```
+
+2. http/https proxy
+TBD
+
+ ### Nginx https service
 
 This example creates a basic nginx https service useful in verifying proof of concept, keys, secrets, configmap, and end-to-end https service creation in kubernetes.
 It uses an [nginx server block](http://wiki.nginx.org/ServerBlockExample) to serve the index page over both http and https. It will detect changes to nginx's configuration file, default.conf, mounted as a configmap volume and reload nginx automatically.
@@ -35,9 +51,9 @@ cluster.  If you want to expose this service to the external internet, you may
 need to set up firewall rules for the service port(s) (tcp:32211,tcp:30028) to serve traffic.
 ```
 service "nginxsvc" created
-
 deployment "nginx" created
 
+### IKS Deploy Ingress Service
 Create a Kubernetes ClusterIP service for your app so that it can be included in the Ingress application load balancing.
 ```
 kubectl expose deploy <app_deployment_name> --name my-app-svc --port <app_port> -n <namespace>
