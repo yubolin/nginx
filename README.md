@@ -55,6 +55,9 @@ Create a secret and a configmap.
 $ kubectl create secret tls nginxsecret --key /tmp/nginx.key --cert /tmp/nginx.crt
 secret "nginxsecret" created
 
+#change namespace.
+$ kubectl config set-context $(kubectl config current-context) --namespace=bolin
+
 $ kubectl create configmap nginxconfigmap1 --from-file=default.conf
 configmap "nginxconfigmap1" created
 $ kubectl create configmap nginxconfigmap2 --from-file=tcp.stream
