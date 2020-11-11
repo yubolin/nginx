@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+ name: myingressresource
+spec:
+ tls:
+ - hosts:
+   - satlink-performance.hybridlinktunnelu-686939-aa995fe97a5075102e0f288085fb0773-0000.us-south.containers.appdomain.cloud
+   secretName: hybridlinktunnelu-686939-aa995fe97a5075102e0f288085fb0773-0000
+ rules:
+ - host: satlink-performance.hybridlinktunnelu-686939-aa995fe97a5075102e0f288085fb0773-0000.us-south.containers.appdomain.cloud
+   http:
+     paths:
+     - path: /
+       backend:
+         serviceName: nginx-http-svc
+         servicePort: 80

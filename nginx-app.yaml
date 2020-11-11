@@ -67,4 +67,4 @@ spec:
         - mountPath: /etc/nginx/sites-enabled
           name: configmap-volume1
         - mountPath: /etc/nginx/sites-available
-          name: configmap-volume2  
+          name: configmap-volume2
